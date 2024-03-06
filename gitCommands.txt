@@ -1,0 +1,7 @@
+Basics:
+
+
+Branch:
+List branches: git branch
+Create new branch: git branch -c <new_branch_name>
+Select branch: git checkout <new_branch_name>
