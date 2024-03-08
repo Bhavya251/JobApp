@@ -1,7 +1,15 @@
 Basics:
+To initiate: git init
+Pull latest code: git pull
 
 
 Branch:
 List branches: git branch
 Create new branch: git branch -c <new_branch_name>
 Select branch: git checkout <new_branch_name>
+Status for old and new files: git status
+Adding file to the branch: git add <file_name>
+Adding multiple files to the branch: git add .
+Upstream command-Puch code from local to remote repo: git push --set-upstream origin <BRANCH_NAME>
+ 
+
