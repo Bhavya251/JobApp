@@ -1,4 +1,6 @@
-package com.atlas.firstjobapp.job;
+package com.atlas.firstjobapp.job.impl;
+
+import com.atlas.firstjobapp.job.Job;
 
 import java.util.List;
 
