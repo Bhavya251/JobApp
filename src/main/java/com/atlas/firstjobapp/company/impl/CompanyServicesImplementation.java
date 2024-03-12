@@ -33,13 +33,11 @@ public class CompanyServicesImplementation implements CompanyServices{
 
     @Override
     public boolean deleteCompanyID(Long cId) {
-        try {
+        if(compRepo.existsById(cId)){
             compRepo.deleteById(cId);
             return true;
         }
-        catch (Exception e){
-            return false;
-        }
+        return false;
     }
 
     @Override
@@ -49,7 +47,7 @@ public class CompanyServicesImplementation implements CompanyServices{
         if (optionalCompany.isPresent()){
             Company company = optionalCompany.get();
             company.setName(updatedComp.getName());
-            company.setCompDescription(updatedComp.getCompDescription());
+            company.setDescription(updatedComp.getDescription());
             company.setJobs(updatedComp.getJobs());
             compRepo.save(company);
             return true;

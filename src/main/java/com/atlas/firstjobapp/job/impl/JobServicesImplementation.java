@@ -46,14 +46,12 @@ public class JobServicesImplementation implements JobServices {
 //            }
 //        }
 //        return false;
-        try {
+
+        if(jobRepo.existsById(id)){
             jobRepo.deleteById(id);
             return true;
         }
-        catch (Exception e){
-            return false;
-        }
-
+        return false;
     }
 
     @Override

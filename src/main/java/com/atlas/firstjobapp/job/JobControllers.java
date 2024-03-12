@@ -1,6 +1,5 @@
 package com.atlas.firstjobapp.job;
 
-import com.atlas.firstjobapp.company.Company;
 import com.atlas.firstjobapp.job.impl.JobServices;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,20 +42,7 @@ public class JobControllers {
     @PostMapping
     public ResponseEntity<String> addJob(@RequestBody Job job){
         jobServices.addJob(job);
-        //return new ResponseEntity<>("Job added", HttpStatus.CREATED);
-
-        System.out.println("1. "+job.getId());
-        System.out.println("2. "+job.getTitle());
-        System.out.println("3. "+job.getDescription());
-        System.out.println("4. "+job.getLocation());
-        System.out.println("5. "+job.getMinSalary());
-        System.out.println("6. "+job.getMaxSalary());
-        System.out.println("7. "+job.getCompany().getCompID());
-        System.out.println("8. "+job.getCompany().getName());
-        System.out.println("9. "+job.getCompany().getCompDescription());
-        System.out.println("0. "+job.getCompany().getJobs());
-
-        return ResponseEntity.ok("New Job Added");
+        return new ResponseEntity<>("New Job added", HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
@@ -74,7 +60,7 @@ public class JobControllers {
         //ResponseEntity
         boolean deleteStatus = jobServices.deleteJobID(id);
         if(!deleteStatus){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Job Not Found", HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>("Deleted Job with ID: "+id, HttpStatus.OK);
     }
@@ -83,7 +69,7 @@ public class JobControllers {
     public ResponseEntity<String> updateJob(@PathVariable Long id, @RequestBody Job updatedJob){
         boolean updateStatus = jobServices.updateJob(id, updatedJob);
         if (!updateStatus)
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Job Not Found", HttpStatus.NOT_FOUND);
         return new ResponseEntity<>("Job Details Updated", HttpStatus.OK);
     }
 }

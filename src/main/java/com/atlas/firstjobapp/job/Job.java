@@ -1,6 +1,7 @@
 package com.atlas.firstjobapp.job;
 
 import com.atlas.firstjobapp.company.Company;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
 
@@ -18,14 +19,13 @@ public class Job {
     @ManyToOne //Mapping: Many Jobs -> One Company
     private Company company;
 
-    public Job(Long id, String title, String description, String minSalary, String maxSalary, String location, Company company) {
+    public Job(Long id, String title, String description, String minSalary, String maxSalary, String location) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.minSalary = minSalary;
         this.maxSalary = maxSalary;
         this.location = location;
-        this.company = company;
     }
 
     public Job() {
