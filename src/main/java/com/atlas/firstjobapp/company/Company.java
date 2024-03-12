@@ -11,23 +11,23 @@ public class Company {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//Auto-generate ID value
-    private Long compID;
+    private Long id;
     private String name;
-    private String compDescription;
+    private String description;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL) //Mapping: One Company -> Many Jobs
+    @OneToMany(mappedBy = "company") //Mapping: One Company -> Many Jobs
     private List<Job> jobs;
 
     public Company() {
     }
 
-    public Long getCompID() {
-        return compID;
+    public Long getId() {
+        return id;
     }
 
-    public void setCompID(Long compID) {
-        this.compID = compID;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -38,12 +38,12 @@ public class Company {
         this.name = name;
     }
 
-    public String getCompDescription() {
-        return compDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setCompDescription(String compDescription) {
-        this.compDescription = compDescription;
+    public void setDescription(String compDescription) {
+        this.description = compDescription;
     }
 
     public List<Job> getJobs() {
