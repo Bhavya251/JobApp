@@ -16,6 +16,7 @@ public class Job {
     private String maxSalary;
     private String location;
 
+
     @ManyToOne //Mapping: Many Jobs -> One Company
     private Company company;
 
