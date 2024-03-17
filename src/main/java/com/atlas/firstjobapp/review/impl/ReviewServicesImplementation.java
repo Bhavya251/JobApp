@@ -8,15 +8,14 @@ import com.atlas.firstjobapp.review.ReviewRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class ReviewServiceImplementation implements ReviewServices{
+public class ReviewServicesImplementation implements ReviewServices{
 
     ReviewRepository reviewRepo;
     CompanyServices companyServices;
 
-    public ReviewServiceImplementation(ReviewRepository reviewRepo, CompanyServices companyServices) {
+    public ReviewServicesImplementation(ReviewRepository reviewRepo, CompanyServices companyServices) {
         this.reviewRepo = reviewRepo;
         this.companyServices = companyServices;
     }
