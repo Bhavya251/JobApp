@@ -1,0 +1,12 @@
+View all images: docker images
+View running containers: docker ps
+Create network (micros-network): docker network create <NETWORK-NAME>
+
+
+Start the PostgreSQL service:
+docker run --name <CONTAINER-NAME(postgresql)> -e POSTGRES_USER=root -e POSTGRES_PASSWORD=root -e PGDATA=/data/postgres -v postgres:/data/postgres
+-p <HOST-PORT>:<CONTAINER-PORT> --network micros-network --restart unless-stopped postgres
+
+Start the pgAdmin service:
+docker run --name pgadmin -e PGADMIN_DEFAULT_EMAIL=pgadmin4@pgadmin.com -e PGADMIN DEFAULT_PASSWORD=admin -e PGADMIN_CONFIG_SERVER_MODE=False
+-v pgadmin:/var/lib/pgadmin -p 5433:80 --network micros-network --restart unless-stopped dpage/pgadmin4
