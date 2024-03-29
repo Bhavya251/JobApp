@@ -10,6 +10,7 @@ Select branch: git checkout <new_branch_name>
 Status for old and new files: git status
 Adding file to the branch: git add <file_name>
 Adding multiple files to the branch: git add .
+Adding only new, deleted & modified files: git add -A
 Commit changes: git commit -m "<Message for commit>"
 Upstream command-Push code from local to remote repo: git push --set-upstream origin <BRANCH_NAME>
 
